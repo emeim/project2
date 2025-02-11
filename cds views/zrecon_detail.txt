@@ -1,0 +1,41 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: '对账单'
+@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+define view entity zrecon_detail as select from zmm009z as Booking
+association to parent zrecon_header as _Travel
+    on $projection.zjmmno = _Travel.zjmmno
+{
+
+    key zjmmno,
+
+    key zjmmnop,
+
+    ebeln,
+
+    ebelp,
+
+    matnr,
+
+    werks,
+
+    ekorg,
+//    menge,
+
+    meins,
+//    rmeng,
+//    fmeng,
+
+//    netpr,
+
+    peinh,
+//    netwr,
+
+    mwskz,
+
+    text1,
+//    znetr,
+//    znetw,
+//    wrbtr
+    _Travel // Make association public
+}

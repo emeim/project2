@@ -1,0 +1,24 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: '对账单单头'
+@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+@ObjectModel.usageType:{
+    serviceQuality: #X,
+    sizeCategory: #S,
+    dataClass: #MIXED
+}
+define root view entity zrecon_header as select from zmm011z as Travel
+composition[0..*] of zrecon_detail as _Booking
+{
+
+    key zjmmno,
+
+    bukrs,
+
+    lifnr,   
+//    netwr,
+//    amount,
+//    wmwst,
+//    taxamount
+    _Booking // Make association public
+}
